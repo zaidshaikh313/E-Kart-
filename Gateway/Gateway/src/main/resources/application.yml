@@ -1,0 +1,24 @@
+server:
+  port: 8999
+
+eureka:
+
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8760/eureka/
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/prod/**,/test/**
+        - id:  temp-service
+          uri: lb://temp-service
+          predicates:
+            - Path=/temp/**

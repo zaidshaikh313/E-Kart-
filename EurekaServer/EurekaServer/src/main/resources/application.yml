@@ -1,0 +1,13 @@
+server:
+  port: 8760
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  serviceUrl:
+    defaultZone: http://localhost:8760/eureka/
